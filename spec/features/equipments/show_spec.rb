@@ -41,7 +41,7 @@ RSpec.describe "the equipments show page" do
 
     it 'displays the helmet equipment price' do
         visit "/equipments/#{@equipment2.id}"
-        
+    
         expect(page).to have_content(@equipment2.price)
         expect(page).to_not have_content(@equipment3.price)
     end
@@ -56,8 +56,8 @@ RSpec.describe "the equipments show page" do
 
     it 'displays the pole equipment brand' do
         visit "/equipments/#{@equipment4.id}"
-        save_and_open_page
         
+
         expect(page).to have_content(@equipment4.brand)
         expect(page).to_not have_content(@equipment5.brand)
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_25_035456) do
+ActiveRecord::Schema.define(version: 2022_08_26_012512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2022_08_25_035456) do
     t.boolean "in_stock"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "shops_id"
+    t.index ["shops_id"], name: "index_equipment_on_shops_id"
   end
 
   create_table "shops", force: :cascade do |t|
@@ -31,4 +33,5 @@ ActiveRecord::Schema.define(version: 2022_08_25_035456) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "equipment", "shops", column: "shops_id"
 end
