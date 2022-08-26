@@ -1,12 +1,5 @@
 require 'rails_helper'
 
-# User Story 1, Parent Index 
-
-# For each parent table
-# As a visitor
-# When I visit '/parents'
-# Then I see the name of each parent record in the system
-
 RSpec.describe "Shops index page", type: :feature do
     describe "As a visitor" do
         describe "When I visit /shops" do
