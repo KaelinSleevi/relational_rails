@@ -1,3 +1,3 @@
 class Shop < ApplicationRecord
-    has_many :equipment
+    has_many :equipments
 end
