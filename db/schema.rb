@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 2022_08_26_012512) do
     t.boolean "in_stock"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "shops_id"
-    t.index ["shops_id"], name: "index_equipment_on_shops_id"
+    t.bigint "shop_id"
+    t.index ["shop_id"], name: "index_equipment_on_shop_id"
   end
 
   create_table "shops", force: :cascade do |t|
@@ -33,5 +33,5 @@ ActiveRecord::Schema.define(version: 2022_08_26_012512) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "equipment", "shops", column: "shops_id"
+  add_foreign_key "equipment", "shops"
 end
