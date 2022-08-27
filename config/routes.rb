@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get '/shops', to: 'shops#index'
   get '/shops/new', to: 'shops#new'
   post '/shops', to: 'shops#create'
+  get '/shops/:id/edit', to: 'shops#edit'
+  patch '/shops/:id', to: 'shops#update'
   get '/shops/:id', to: 'shops#show'
   get '/equipments', to: 'equipments#index'
   get '/equipments/:id', to: 'equipments#show'
