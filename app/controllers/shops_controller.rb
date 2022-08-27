@@ -5,7 +5,7 @@ class ShopsController < ApplicationController
     end
     
     def create
-        @shop = Shop.new({
+        @shop = Shop.create!({
             name: params[:shop][:name],
             ratings: params[:shop][:ratings],
             is_open: params[:shop][:is_open]
