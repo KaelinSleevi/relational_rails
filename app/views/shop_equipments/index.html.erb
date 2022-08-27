@@ -1,4 +1,13 @@
 <h1><%= @evolution.name%></h1>
-<p> <%= @equipment.brand%></p>
-<p> <%= @equipment.price%></p>
-<p> <%= @equipment.in_stock%></p>
+<h3>Equipment:</h3>
+    <% @evolution.equipments.each do |equipment| %>
+    <p> Brand: <%= equipment.brand %>
+    <p> Price: <%= equipment.price%></p>
+    <p> Stock? 
+        <% if equipment.in_stock == true%>
+            <%= "In Stock" %>
+        <% else %>
+            <%= "Out of Stock" %>
+        <% end %>
+        </p>
+    <%end%> 
