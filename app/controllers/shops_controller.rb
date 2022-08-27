@@ -1,9 +1,26 @@
 class ShopsController < ApplicationController
-    def index
-       @shops = Shop.all.order(:created_at)
+    
+    def new
+        
+    end
+    
+    def create
+        @shop = Shop.new({
+            name: params[:shop][:name],
+            ratings: params[:shop][:ratings],
+            is_open: params[:shop][:is_open]
+            })
+            
+            @shop.save
+            
+            redirect_to '/shops'
     end
 
-    def show
-        @shop = Shop.find(params[:id])
-    end    
+    def index
+         @shops = Shop.all.order(:created_at)
+    end
+    
+     def show
+         @shop = Shop.find(params[:id])
+    end
 end

@@ -1,0 +1,12 @@
+<form action="/shops" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <h3>Enter a new shop:</h3>
+  <p>Give your shop a name:</p>
+  <input type='text' name='shop[name]'/><br/>
+  <p>Rate this shop:</p>
+  <textarea name='shop[ratings]'></textarea><br/>
+  <p>Is it open now? (True or False)</p>
+  <input type='text' name='shop[open]'/><br/>
+
+  <input type='submit'/>
+</form>
