@@ -31,6 +31,7 @@ RSpec.describe 'Shops Equipment Index' do
     it 'shows the brands for each piece of equipment' do
       
         visit "/shops/#{@evolution.id}/equipments"
+        
         expect(page).to have_content(@equipment.brand)
         expect(page).to_not have_content(@equipment1.brand)
     end
@@ -38,7 +39,7 @@ RSpec.describe 'Shops Equipment Index' do
     it 'shows the price for each piece of equipment' do
 
         visit "/shops/#{@evolution.id}/equipments"
-        save_and_open_page
+
         expect(page).to have_content(@equipment.price)
         expect(page).to_not have_content(@equipment1.price)
     end
