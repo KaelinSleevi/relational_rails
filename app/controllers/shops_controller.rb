@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
     def index
-       @shops = Shop.all
+       @shops = Shop.all.order(:created_at)
     end
 
     def show
