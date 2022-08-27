@@ -17,7 +17,7 @@ class ShopsController < ApplicationController
     end
 
     def index
-         @shops = Shop.all.order(:created_at)
+         @shops = Shop.all.order(created_at: :desc)
     end
     
      def show
