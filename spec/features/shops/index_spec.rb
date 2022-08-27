@@ -20,6 +20,21 @@ RSpec.describe "Shops index page", type: :feature do
 
                 expect(page).to have_content(shop_1.created_at)
             end
+
+
+            it 'The user is able to see a link at the top of the page' do
+                visit "/equipments"
+
+                click_link 'Equipment Index'
+                expect(page).to have_current_path(equipments_path)
+            end
+
+            it 'The user is able to see a link at the top of the page' do
+                visit "/equipments"
+
+                click_link 'Shops Index'
+                expect(page).to have_current_path(shops_path)
+             end
         end
     end
 end

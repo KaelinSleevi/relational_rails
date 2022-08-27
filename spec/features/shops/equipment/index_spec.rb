@@ -1,9 +1,4 @@
 require 'rails_helper'
-# User Story 5, Parent Children Index 
-
-# As a visitor
-# When I visit '/parents/:parent_id/child_table_name'
-# Then I see each Child that is associated with that Parent with each Child's attributes:
 
 RSpec.describe 'Shops Equipment Index' do
     before(:each) do
@@ -52,9 +47,18 @@ RSpec.describe 'Shops Equipment Index' do
         expect(page).to_not have_content("Stock? Out of Stock")
     end
 
-    xit 'links to each piece of equipments show page' do
-
-        visit "/shops/#{@evolution.id}/equipments"
     
+    it 'The user is able to see a link at the top of the page' do
+        visit "/shops/#{@evolution.id}/equipments"
+
+        click_link 'Equipment Index'
+        expect(page).to have_current_path(equipments_path)
+    end
+
+    it 'The user is able to see a link at the top of the page' do
+        visit "/shops/#{@evolution.id}/equipments"
+
+        click_link 'Shops Index'
+        expect(page).to have_current_path(shops_path)
     end
 end
