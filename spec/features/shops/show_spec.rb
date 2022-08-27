@@ -43,7 +43,7 @@ RSpec.describe "the shops show page" do
 
     it 'displays the shops ratings' do
         visit "/shops/#{@skisplus.id}"
-        save_and_open_page
+
         expect(page).to have_content(@skisplus.ratings)
         expect(page).to_not have_content(@evolution.ratings)
     end
@@ -53,5 +53,19 @@ RSpec.describe "the shops show page" do
 
         expect(page).to have_content(@skisplus.is_open)
         expect(page).to_not have_content(@evolution.is_open)
-    end    
+    end
+
+    it 'The user is able to see a link at the top of the page' do
+        visit "/shops/#{@equipment.id}"
+
+        click_link 'Equipment Index'
+        expect(page).to have_current_path(equipments_path)
+    end
+
+    it 'The user is able to see a link at the top of the page' do
+        visit "/shops/#{@evolution.id}"
+
+        click_link 'Shops Index'
+        expect(page).to have_current_path(shops_path)
+    end
 end

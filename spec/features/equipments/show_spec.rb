@@ -78,4 +78,18 @@ RSpec.describe "the equipments show page" do
         expect(page).to have_content(@equipment4.in_stock)
         expect(page).to_not have_content(@equipment5.in_stock)
     end
+
+    it 'The user is able to see a link at the top of the page' do
+        visit "/equipments/#{@equipment.id}"
+
+        click_link 'Equipment Index'
+        expect(page).to have_current_path(equipments_path)
+    end
+
+    it 'The user is able to see a link at the top of the page' do
+        visit "/equipments/#{@evolution.id}"
+
+        click_link 'Shops Index'
+        expect(page).to have_current_path(shops_path)
+    end
 end

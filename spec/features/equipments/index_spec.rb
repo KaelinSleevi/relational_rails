@@ -1,11 +1,5 @@
 require 'rails_helper'
 
-# User Story 3, Child Index 
-
-# As a visitor
-# When I visit '/child_table_name'
-# Then I see each Child in the system including the Child's attributes:
-
 RSpec.describe "Equipments index page", type: :feature do
     describe "As a visitor" do
         describe "When I visit /equipments" do
@@ -29,6 +23,20 @@ RSpec.describe "Equipments index page", type: :feature do
                 expect(page).to have_content(equipment3.brand)
                 expect(page).to have_content(equipment4.brand)
                 expect(page).to have_content(equipment5.brand)
+            end
+
+            it 'The user is able to see a link at the top of the page' do
+                visit "/equipments"
+        
+                click_link 'Equipment Index'
+                expect(page).to have_current_path(equipments_path)
+            end
+
+            it 'The user is able to see a link at the top of the page' do
+                visit "/equipments"
+        
+                click_link 'Shops Index'
+                expect(page).to have_current_path(shops_path)
             end
         end
     end
