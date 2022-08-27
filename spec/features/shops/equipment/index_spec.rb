@@ -57,7 +57,7 @@ RSpec.describe 'Shops Equipment Index' do
 
     it 'The user is able to see a link at the top of the page' do
         visit "/shops/#{@evolution.id}/equipments"
-        save_and_open_page
+       
         click_link 'Shops Index'
         expect(page).to have_current_path(shops_path)
     end
