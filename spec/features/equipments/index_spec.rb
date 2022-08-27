@@ -10,12 +10,12 @@ RSpec.describe "Equipments index page", type: :feature do
     describe "As a visitor" do
         describe "When I visit /equipments" do
             it 'I can see each equiments name' do
-                equipment = Equipment.create!(brand: "Black Crows Skis", price: 667.28, in_stock:  false)
-                equipment1 = Equipment.create!(brand: "Atomic Maven Skis", price: 299.97, in_stock: false)
-                equipment2 = Equipment.create!(brand: "Giro Ceva Helmet", price: 74.99, in_stock: false)
-                equipment3 = Equipment.create!(brand: "Smith Holt Helmet", price: 48.99, in_stock: false)
-                equipment4 = Equipment.create!(brand: "Black Crows Poles", price: 44.99, in_stock: false)
-                equipment5 = Equipment.create!(brand: "Volkl Poles", price: 49.0, in_stock: false)
+                equipment = Equipment.create!(brand: "Black Crows Skis", price: 667.28, in_stock:  false, shop_id: 1)
+                equipment1 = Equipment.create!(brand: "Atomic Maven Skis", price: 299.97, in_stock: false, shop_id: 2)
+                equipment2 = Equipment.create!(brand: "Giro Ceva Helmet", price: 74.99, in_stock: false, shop_id: 1)
+                equipment3 = Equipment.create!(brand: "Smith Holt Helmet", price: 48.99, in_stock: false, shop_id: 2)
+                equipment4 = Equipment.create!(brand: "Black Crows Poles", price: 44.99, in_stock: false, shop_id: 1)
+                equipment5 = Equipment.create!(brand: "Volkl Poles", price: 49.0, in_stock: false, shop_id: 2)
 
                 visit '/equipments'
                 save_and_open_page
