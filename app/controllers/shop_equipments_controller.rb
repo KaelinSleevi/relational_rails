@@ -20,5 +20,6 @@ class ShopEquipmentsController < ApplicationController
 
     def index
         @evolution = Shop.find(params[:shop_id])
+        @new_evolution = @evolution.equipments.order(:brand)
     end
 end

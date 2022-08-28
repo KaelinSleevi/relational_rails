@@ -2,14 +2,14 @@
    <nav>
       <a href="/shops" style = "padding: 10px;">Shops Index</a>
       <a href="/equipments" style = "padding: 10px;">Equipment Index</a>
-      <a href="/shops/<%= @evolution.id %>/equipments/new" style = "padding: 10px;">Create Equipment</a>
+      <a href="/shops/<%= @evolution.id %>/equipments/new">Create Equipment</a>
    </nav>
 </div>
 <h1><%= @evolution.name%></h1>
 <h3>Equipment:</h3>
-    <% @evolution.equipments.each do |equipment| %>
+    <% @new_evolution.each do |equipment| %>
     <p> Brand: <%= equipment.brand %>
-    <p> Price: <%= equipment.price%></p>
+    <p> Price: <%= equipment.price %>
     <p> Stock? 
         <% if equipment.in_stock == true%>
             <%= "In Stock" %>
