@@ -1,7 +1,6 @@
 class ShopEquipmentsController < ApplicationController
 
     def new
-        #  require "pry"; binding.pry
         @evolution = Shop.find(params[:shop_id])
     end
 

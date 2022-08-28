@@ -1,0 +1,9 @@
+<form action="/equipments/<%= @equipment.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <p>Edit</p>
+  <input type='text' name='equipment[brand]' value="<%= @equipment.brand %>"/><br/>
+  <textarea name='equipment[price]'><%= @equipment.price %></textarea><br/>
+  <input type='text' name='equipment[in_stock]'><br/>
+  <input type='submit' value='Submit'/>
+</form>
