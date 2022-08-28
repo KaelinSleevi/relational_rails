@@ -1,11 +1,12 @@
 class ShopEquipmentsController < ApplicationController
 
     def new
-
+        #  require "pry"; binding.pry
+        @evolution = Shop.find(params[:shop_id])
     end
 
     def create
-        @evolution = Shop.find(params[:id])
+        @evolution = Shop.find(params[:shop_id])
 
         @equipment = @evolution.equipments.create!({
             brand: params[:equipment][:brand],
@@ -15,11 +16,7 @@ class ShopEquipmentsController < ApplicationController
             
             @equipment.save
             
-            redirect_to "/shops/#{@evolution.id}/equipments/"
-    end
-
-    def edit
-        @evolution = Shop.find(params[:id])
+            redirect_to "/shops/#{@evolution.id}/equipments"
     end
 
     def index

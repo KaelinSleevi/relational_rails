@@ -29,7 +29,7 @@ class ShopsController < ApplicationController
           })
         @shop.save
 
-        redirect_to "/shops/#{shop.id}"
+        redirect_to "/shops/#{@shop.id}"
     end
     
     def index
