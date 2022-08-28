@@ -1,0 +1,12 @@
+<form action="/shops/<%= @evolution.id %>/equipments" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <h3>Create Some New Equipment:</h3>
+  <p>Give your equipment brand:</p>
+  <input type='text' name='equipment[brand]'/><br/>
+  <p>What is the price?:</p>
+  <textarea name='equipment[price]'></textarea><br/>
+  <p>Is it in stock? (True or False)</p>
+  <input type='text' name='equipment[stock]'/><br/>
+
+  <input type='submit' value='Submit'/>
+</form>
