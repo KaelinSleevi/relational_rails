@@ -1,12 +1,18 @@
  <div style = "background-color: grey; color: white; padding: 5px;">
    <nav>
-      <a href="/shops">Shops Index</a>
-      <a href="/equipments">Equipment Index</a>
+      <a href="/shops" style = "padding: 10px;">Shops Index</a>
+      <a href="/equipments" style = "padding: 10px;">Equipment Index</a>
    </nav>
 </div>
 <h1>Ski Equipment</h1>
 <% @equipment.each do |equipment| %>
    <p> Brand: <%= equipment.brand %> </p>
    <p> Price: <%= equipment.price %> </p>
-   <p> Stock?: <%= equipment.in_stock %> </p>
-<% end %>
+   <p> Stock? 
+        <% if equipment.in_stock == true%>
+            <%= "In Stock" %>
+        <% else %>
+            <%= "Out of Stock" %>
+        <% end %>
+        </p>
+    <%end%> 

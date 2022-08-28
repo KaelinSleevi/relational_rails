@@ -4,7 +4,7 @@ class EquipmentsController < ApplicationController
     end
     
     def index
-        @equipment = Equipment.all
+        @equipment = Equipment.where(in_stock: true)
     end
 
     def edit
