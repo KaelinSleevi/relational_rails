@@ -51,7 +51,7 @@ RSpec.describe "Equipments index page", type: :feature do
                 equipment5 = skisplus.equipments.create!(brand: "Volkl Poles", price: 49.0, in_stock: false, shop_id: 2)
                 
                 visit "/equipments"
-                save_and_open_page
+                
                 expect(page).to have_content(equipment.brand)
                 expect(page).to have_content(equipment2.brand)
                 expect(page).to have_content(equipment4.brand)
