@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe 'the Shops Creation' do
+RSpec.describe 'Shops Equipment Creation' do
     before(:each) do
-        @evolution = Shop.create!(name: 'Evolution', ratings: 4.25, is_open: true)
+        @evolution = Shop.create!(name: 'Evolution', ratings: 4.25, is_open: false)
         @skisplus = Shop.create!(name: 'Skis Plus', ratings: 3.7, is_open: false)
 
         @equipment = @evolution.equipments.create!(brand: "Black Crows Skis", price: 667.28, in_stock:  true, shop_id: 1)
@@ -11,27 +11,24 @@ RSpec.describe 'the Shops Creation' do
         @equipment3 = @skisplus.equipments.create!(brand: "Smith Holt Helmet", price: 48.99, in_stock: false, shop_id: 2)
         @equipment4 = @evolution.equipments.create!(brand: "Black Crows Poles", price: 44.99, in_stock: true, shop_id: 1)
         @equipment5 = @skisplus.equipments.create!(brand: "Volkl Poles", price: 49.0, in_stock: false, shop_id: 2)
-    end
-    
-    it 'links to the new page from the Shop index' do
-        visit '/shops'
 
-        click_link('New Shop')
-        expect(current_path).to eq('/shops/new')
+    end
+
+    it 'links to the new page from the Shop Equipment index' do
+        visit "/shops/#{@evolution.id}/equipments"
+
+        click_link('Create Equipment')
+        expect(current_path).to eq("/shops/#{@evolution.id}/equipments/new")
     end
 
     it 'can create a new Shop' do
-        visit '/shops/new'
+        visit "/shops/#{@evolution.id}/equipments/new"
 
         expect(page.has_field?).to eq(true)
 
-        fill_in "shop[name]", with: "Evo"
-        fill_in "shop[ratings]", with: "4.75"
-        fill_in "shop[open]", with: "True"
-
         click_button('Submit')
-
-        expect(current_path).to eq('/shops')
-        expect(page).to have_content("Evo")
+        
+        expect(current_path).to eq("/shops/#{@evolution.id}/equipments")
+        expect(page).to have_content("Black Crows Poles")
     end
 end

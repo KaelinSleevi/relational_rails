@@ -16,6 +16,7 @@ RSpec.describe 'the Shops can be edited' do
     it 'links to the new page from the Shop show page' do
         
         visit "/shops/#{@evolution.id}"
+        
         click_link('Edit')
         expect(current_path).to eq("/shops/#{@evolution.id}/edit")
     end
