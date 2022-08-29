@@ -26,4 +26,12 @@ class EquipmentsController < ApplicationController
     def show
         @equipment = Equipment.find(params[:id])
     end
+
+    def destroy
+        @equipment = Equipment.find(params[:id])
+        
+        @equipment.destroy
+        redirect_to "/equipments/#{@equipment.id}"
+    end
+
 end
