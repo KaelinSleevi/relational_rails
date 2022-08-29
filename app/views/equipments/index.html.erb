@@ -6,7 +6,8 @@
 </div>
 <h1>Ski Equipment</h1>
 <% @equipment.each do |equipment| %>
-   <p> Brand: <%= equipment.brand %> </p>
+   <p> Brand: <%= equipment.brand %>
+        <a href="/equipments/<%= equipment.id %>/edit" style = "padding: 10px;">Edit</a> </p>
    <p> Price: <%= equipment.price %> </p>
    <p> Stock? 
         <% if equipment.in_stock == true%>
