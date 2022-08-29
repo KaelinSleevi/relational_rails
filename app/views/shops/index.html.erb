@@ -8,7 +8,7 @@
 <h1>Ski Shops Denver</h1>
 <% @shops.each do |shop| %>
    <p> <%= shop.name %>
-    <%="(created at: #{shop.created_at})" %>
-    </p>
+      <a href="/shops/<%= shop.id %>/edit" style = "padding: 10px;">Edit</a></p>
+   <p> <%="(created at: #{shop.created_at})" %> </p>
 <% end %>
 
