@@ -44,7 +44,7 @@ class ShopsController < ApplicationController
         @shop = Shop.find(params[:id])
 
         @shop.destroy
-        redirect_to "/shops/#{@shop.id}"
+        redirect_to "/shops"
     end
 
 end

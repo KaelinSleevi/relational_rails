@@ -31,7 +31,7 @@ class EquipmentsController < ApplicationController
         @equipment = Equipment.find(params[:id])
         
         @equipment.destroy
-        redirect_to "/equipments/#{@equipment.id}"
+        redirect_to "/equipments"
     end
 
 end
