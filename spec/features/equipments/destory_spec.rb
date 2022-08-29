@@ -21,4 +21,13 @@ RSpec.describe "the equipments destroy action" do
         expect(current_path).to eq("/equipments")
         expect(page).to_not have_content('Black Crows Skis')
     end
+
+    it 'can delete the equipment from the index page' do
+        visit "/equipments"
+
+        click_button("Delete #{@equipment.brand}")
+
+        expect(current_path).to eq("/equipments")
+        expect(page).to_not have_content('Black Crows Skis')
+    end
 end

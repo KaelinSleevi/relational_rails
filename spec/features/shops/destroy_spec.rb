@@ -21,4 +21,14 @@ RSpec.describe "the shops destroy action" do
         expect(current_path).to eq("/shops")
         expect(page).to_not have_content('Evolution')
     end
+
+    it 'can delete the shop from the index page' do
+        visit "/shops"
+
+        click_button("Delete #{@evolution.name}")
+
+        expect(current_path).to eq("/shops")
+        expect(page).to_not have_content('Evolution')
+    end
+
 end
