@@ -9,3 +9,4 @@
 <h2><%= @equipment.brand %></h2>
 <p>Prices: <%= @equipment.price %></p>
 <p>Stock: <%= @equipment.in_stock %></p>
+<%= button_to "Delete #{@equipment.brand}", "/equipments/#{@equipment.id}", method: :delete%>
