@@ -6,7 +6,7 @@
 </div>
 <h1>Ski Equipment</h1>
 <% @equipment.each do |equipment| %>
-   <p> Brand: <%= equipment.brand %>
+   <p> Brand: <%= equipment.brand %> <%= button_to "Delete #{equipment.brand}", "/equipments/#{equipment.id}", method: :delete%>
         <a href="/equipments/<%= equipment.id %>/edit" style = "padding: 10px;">Edit</a> </p>
    <p> Price: <%= equipment.price %> </p>
    <p> Stock? 
@@ -17,3 +17,4 @@
         <% end %>
         </p>
     <%end%> 
+    
