@@ -5,11 +5,11 @@ class ShopsController < ApplicationController
     end
     
     def create
-        @shop = Shop.create!({
-            name: params[:shop][:name],
-            ratings: params[:shop][:ratings],
-            is_open: params[:shop][:is_open]
-            })
+        @shop = Shop.create!(
+            name: params[:name],
+            ratings: params[:ratings],
+            is_open: params[:is_open]
+            )
             
             @shop.save
             
@@ -22,11 +22,11 @@ class ShopsController < ApplicationController
 
     def update
         @shop = Shop.find(params[:id])
-        @shop.update({
-          name: params[:shop][:name],
-          ratings: params[:shop][:ratings],
-          is_open: params[:shop][:is_open]
-          })
+        @shop.update(
+          name: params[:name],
+          ratings: params[:ratings],
+          is_open: params[:is_open]
+          )
         @shop.save
 
         redirect_to "/shops/#{@shop.id}"

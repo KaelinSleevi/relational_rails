@@ -7,11 +7,11 @@ class ShopEquipmentsController < ApplicationController
     def create
         @evolution = Shop.find(params[:shop_id])
 
-        @equipment = @evolution.equipments.create!({
-            brand: params[:equipment][:brand],
-            price: params[:equipment][:price],
-            in_stock: params[:equipment][:in_stock]
-            })
+        @equipment = @evolution.equipments.create!(
+            brand: params[:brand],
+            price: params[:price],
+            in_stock: params[:in_stock]
+            )
             
             @equipment.save
             

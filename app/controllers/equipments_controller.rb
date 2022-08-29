@@ -13,11 +13,11 @@ class EquipmentsController < ApplicationController
 
     def update
         @equipment = Equipment.find(params[:id])
-        @equipment.update({
-          brand: params[:equipment][:brand],
-          price: params[:equipment][:price],
-          in_stock: params[:equipment][:in_stock]
-          })
+        @equipment.update(
+          brand: params[:brand],
+          price: params[:price],
+          in_stock: params[:in_stock]
+          )
         @equipment.save
 
         redirect_to "/equipments/#{@equipment.id}"
