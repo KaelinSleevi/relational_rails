@@ -7,11 +7,7 @@ class ShopEquipmentsController < ApplicationController
     def create
         @evolution = Shop.find(params[:shop_id])
 
-        @equipment = @evolution.equipments.create!({
-            brand: params[:equipment][:brand],
-            price: params[:equipment][:price],
-            in_stock: params[:equipment][:in_stock]
-            })
+        @equipment = @evolution.equipments.create!(equipment_params)
             
             @equipment.save
             
@@ -21,5 +17,11 @@ class ShopEquipmentsController < ApplicationController
     def index
         @evolution = Shop.find(params[:shop_id])
         @new_evolution = @evolution.equipments.order(params[:sort])
+    end
+
+    private
+
+    def equipment_params
+        params.permit(:brand, :price, :in_stock)
     end
 end

@@ -30,6 +30,6 @@ RSpec.describe 'the Equipment can be edited' do
         click_button('Submit')
 
         expect(current_path).to eq("/equipments/#{@equipment.id}")
-        expect(page).to_not have_content("Black Crows Skis")
+        expect(page).to have_content("Black Crows Skis")
     end
 end

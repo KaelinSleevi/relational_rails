@@ -29,6 +29,6 @@ RSpec.describe 'the Shops can be edited' do
         click_button('Submit')
 
         expect(current_path).to eq("/shops/#{@evolution.id}")
-        expect(page).to_not have_content("Evolution")
+        expect(page).to have_content("Evolution")
     end
 end
