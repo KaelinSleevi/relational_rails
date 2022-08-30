@@ -16,6 +16,6 @@
         <% else %>
             <%= "Out of Stock" %>
         <% end %>
-        </p>
+        </p><br></br>
     <%end%> 
 <%= button_to "Alphabetize",  "/shops/#{@evolution.id}/equipments", method: :get, params: {sort: "brand"}%>
