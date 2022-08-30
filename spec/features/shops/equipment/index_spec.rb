@@ -65,6 +65,8 @@ RSpec.describe 'Shops Equipment Index' do
     it 'shows the equipment ordered by brand name' do
         visit "/shops/#{@evolution.id}/equipments"
 
+        click_button 'Alphabetize'
+
         expect("Brand: Black Crows Poles").to appear_before("Brand: Black Crows Skis")
         expect("Brand: Black Crows Skis").to appear_before("Brand: Giro Ceva Helmet")
         expect("Brand: Giro Ceva Helmet").to_not appear_before("Brand: Black Crows Skis")

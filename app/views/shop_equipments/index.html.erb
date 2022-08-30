@@ -5,7 +5,7 @@
       <a href="/shops/<%= @evolution.id %>/equipments/new">Create Equipment</a>
    </nav>
 </div>
-<h1><%= @evolution.name%></h1>
+<h1><%= @evolution.name %></h1>
 <h3>Equipment:</h3>
     <% @new_evolution.each do |equipment| %>
     <p> Brand: <%= equipment.brand %>
@@ -18,3 +18,4 @@
         <% end %>
         </p>
     <%end%> 
+<%= button_to "Alphabetize",  "/shops/#{@evolution.id}/equipments", method: :get, params: {sort: "brand"}%>
