@@ -2,14 +2,15 @@
    <nav>
       <a href="/shops" style = "padding: 10px;">Shops Index</a>
       <a href="/equipments" style = "padding: 10px;">Equipment Index</a>
-   
       <a href="/shops/new" style = "padding: 10px;">New Shop</a>
    </nav>
 </div>
 <h1>Ski Shops Denver</h1>
 <% @shops.each do |shop| %>
-   <p> <%= shop.name %> <%= button_to "Delete #{shop.name}", "/shops/#{shop.id}", method: :delete%>
+   <p> <%= shop.name %>
       <a href="/shops/<%= shop.id %>/edit" style = "padding: 10px;">Edit</a></p>
    <p> <%="(created at: #{shop.created_at})" %> </p>
+   <%= button_to "View #{shop.name}", "/shops/#{shop.id}", method: :get%>
+   <%= button_to "Delete #{shop.name}", "/shops/#{shop.id}", method: :delete%>
 <% end %>
 
