@@ -22,11 +22,7 @@ class ShopsController < ApplicationController
 
     def update
         @shop = Shop.find(params[:id])
-        @shop.update({
-          name: params[:name],
-          ratings: params[:ratings],
-          is_open: params[:is_open]
-          })
+        @shop.update(shop_params)
         @shop.save
 
         redirect_to "/shops/#{@shop.id}"
@@ -45,6 +41,13 @@ class ShopsController < ApplicationController
 
         @shop.destroy
         redirect_to "/shops"
+    end
+
+
+    private
+
+    def shop_params
+        params.permit(:name, :ratings, :is_open)
     end
 
 end

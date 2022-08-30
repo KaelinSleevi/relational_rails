@@ -13,11 +13,7 @@ class EquipmentsController < ApplicationController
 
     def update
         @equipment = Equipment.find(params[:id])
-        @equipment.update(
-          brand: params[:brand],
-          price: params[:price],
-          in_stock: params[:in_stock]
-          )
+        @equipment.update(equipment_params)
         @equipment.save
 
         redirect_to "/equipments/#{@equipment.id}"
@@ -34,4 +30,10 @@ class EquipmentsController < ApplicationController
         redirect_to "/equipments"
     end
 
+
+    private
+
+    def equipment_params
+        params.permit(:brand, :price, :in_stock)
+    end
 end
