@@ -5,13 +5,8 @@ class ShopsController < ApplicationController
     end
     
     def create
-        @shop = Shop.create!({
-            name: params[:shop][:name],
-            ratings: params[:shop][:ratings],
-            is_open: params[:shop][:is_open]
-            })
+        @shop = Shop.create!(shop_params)
             
-            @shop.save
             
             redirect_to '/shops'
     end
